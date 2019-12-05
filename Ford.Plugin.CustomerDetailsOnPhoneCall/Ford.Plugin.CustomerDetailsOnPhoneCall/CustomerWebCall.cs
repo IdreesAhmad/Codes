@@ -94,6 +94,7 @@ namespace Ford.Plugin.CustomerDetailsOnPhoneCall
                         if(response.Length > 50)
                         {
                             response = response.Substring(1, response.Length - 2);
+                            tracer.Trace("Response : " + response);
                             var ms = new MemoryStream(Encoding.UTF8.GetBytes(response));
                             var ser = new DataContractJsonSerializer(user.GetType());
                             user = ser.ReadObject(ms) as User;
